@@ -54,25 +54,40 @@ Dự án này sử dụng 100% **Front-end thuần (Vanilla)**, không phụ thu
 
 Nếu bạn muốn clone (nhân bản) dự án này về để làm một chiếc CV cho riêng mình, hãy làm theo các bước sau:
 
- Bước 1: Clone dự án
+### Bước 1: Clone dự án
 Mở Terminal và chạy lệnh sau để kéo code về máy:
-git clone [https://github.com/HuynhSang-IT/Ten-Kho-Cua-Ban.git](https://github.com/HuynhSang-IT/Ten-Kho-Cua-Ban.git)
- Bước 2: Tùy chỉnh thông tin cá nhân
+```bash
+git clone [https://github.com/HuynhSang-IT/My-Portfolio_2026.git](https://github.com/HuynhSang-IT/My-Portfolio_2026.git)
+Bước 2: Tùy chỉnh thông tin cá nhân
 Mở file index.html và chỉnh sửa lại các thông tin:
+
 Thẻ <h1>, <p> để đổi tên và giới thiệu.
+
 Thêm/Bớt các khối <div class="timeline-item"> để thay đổi lộ trình học vấn.
+
 Thay link ảnh trong thư mục assets.
- Bước 3: Thiết lập gửi Form về Email của bạn
+
+Bước 3: Thiết lập gửi Form về Email của bạn
 Truy cập Web3Forms.
+
 Nhập Email của bạn vào để nhận Access Key.
-Mở file index.html, tìm dòng <input type="hidden" name="access_key" value="..."> và thay Value bằng Key của bạn.
- Bước 4: Triển khai (Deploy) lên Netlify
+
+Mở file index.html, tìm dòng <input type="hidden" name="access_key" value="..."> và thay Value bằng mã Key của bạn.
+
+Bước 4: Triển khai (Deploy) lên Netlify
 Đẩy code của bạn lên một kho GitHub cá nhân.
+
 Đăng nhập vào Netlify, chọn Add new site -> Import from GitHub.
+
 Chọn kho code chứa trang web này.
-Bấm Deploy. Từ giờ, mỗi khi bạn lệnh git push lên GitHub, Netlify sẽ tự động nhận diện và cập nhật website của bạn ngay lập tức!
+
+Bấm Deploy. Từ giờ, mỗi khi bạn gõ lệnh git push lên GitHub, Netlify sẽ tự động nhận diện và cập nhật website của bạn ngay lập tức!
+
 📬 Liên hệ
 Tác giả: Trần Huỳnh Sang
+
 Email: sang123567tqs@gmail.com
+
 Định hướng: Java Backend Developer | Blockchain Enthusiast
+
 Nếu bạn thấy giao diện này thú vị, đừng quên để lại một ⭐ cho repository này nhé!
