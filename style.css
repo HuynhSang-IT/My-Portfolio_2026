@@ -1,0 +1,213 @@
+/* =========================================
+   1. KHAI BÁO BIẾN 
+========================================= */
+:root {
+    --bg-main: #131722;      
+    --bg-card: #1c212c; 
+    
+    --primary: #e65100;      
+    --primary-hover: #ff6d00;
+    --accent: #5e35b1;       
+    
+    --text-title: #ffffff;   
+    --text-body: #a9b1c2;    
+    --border: rgba(255, 255, 255, 0.15); 
+    
+    --radius: 8px;           
+}
+
+/* =========================================
+   2. NỀN & HIỆU ỨNG ÁNH SÁNG
+========================================= */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Montserrat', sans-serif; }
+
+body {
+    background-color: var(--bg-main); color: var(--text-body); line-height: 1.6;
+    overflow-x: hidden; position: relative;
+    background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+    background-size: 30px 30px;
+}
+
+.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 10; }
+
+.glow {
+    position: fixed; width: 600px; height: 600px; border-radius: 50%; filter: blur(120px);
+    z-index: 1; opacity: 0.3; animation: floatGlow 15s infinite alternate ease-in-out; pointer-events: none; 
+}
+.glow-1 { background: radial-gradient(circle, var(--primary) 0%, transparent 70%); top: -200px; left: -200px; }
+.glow-2 { background: radial-gradient(circle, var(--accent) 0%, transparent 70%); bottom: -100px; right: -200px; animation-delay: -5s; }
+
+@keyframes floatGlow {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(100px, 150px) scale(1.2); }
+}
+
+/* =========================================
+   3. NÚT BẤM & THẺ GLASSMORPHISM
+========================================= */
+.btn {
+    display: inline-block; padding: 12px 28px; font-size: 0.9rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 1px; border-radius: var(--radius);
+    text-decoration: none; transition: all 0.3s ease; cursor: pointer; backdrop-filter: blur(5px);
+}
+.btn--primary { background-color: var(--primary); color: #fff; border: 2px solid var(--primary); box-shadow: 0 0 15px rgba(230, 81, 0, 0.4); }
+.btn--primary:hover { background-color: transparent; color: var(--primary-hover); border-color: var(--primary-hover); transform: translateY(-3px); box-shadow: 0 10px 25px rgba(230, 81, 0, 0.6); }
+
+.btn--outline { background-color: transparent; color: var(--text-title); border: 2px solid var(--border); }
+.btn--outline:hover { border-color: var(--primary); color: var(--primary); transform: translateY(-3px); }
+
+.btn--download { background-color: rgba(255,255,255,0.05); color: #fff; border: 2px solid #5e35b1; }
+.btn--download:hover { background-color: #5e35b1; color: #fff; transform: translateY(-3px); box-shadow: 0 10px 25px rgba(94, 53, 177, 0.4); }
+
+.btn--small { padding: 8px 16px; font-size: 0.75rem; }
+
+.project-card, .skill-box, .feedback-container {
+    background-color: var(--bg-card); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    border-radius: var(--radius); border: 1px solid var(--border); transition: all 0.4s ease;
+}
+
+/* =========================================
+   4. CV LAYOUT (CHIA 2 CỘT)
+========================================= */
+.cv-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+
+.column-title { color: var(--text-title); font-size: 1.4rem; margin-bottom: 25px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
+
+.timeline { position: relative; padding-left: 20px; border-left: 2px solid var(--border); }
+.timeline-item { position: relative; margin-bottom: 40px; }
+.timeline-dot {
+    position: absolute; left: -29px; top: 5px; width: 16px; height: 16px;
+    border-radius: 50%; background-color: var(--primary); border: 4px solid var(--bg-main);
+    box-shadow: 0 0 10px var(--primary);
+}
+.timeline-content h3 { color: var(--text-title); font-size: 1.2rem; margin-bottom: 5px; }
+.timeline-content span { color: var(--primary); font-weight: 700; font-size: 0.85rem; display: block; margin-bottom: 10px; }
+
+/* =========================================
+   5. SKILLS & THẺ TIẾN TRÌNH
+========================================= */
+.skills-cv-grid { display: grid; grid-template-columns: 1.5fr 1fr; gap: 30px; margin-top: 30px; }
+.skill-box { padding: 30px; }
+.skill-box h3 { color: var(--text-title); margin-bottom: 25px; font-size: 1.2rem; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
+
+.skill-bar-container { margin-bottom: 20px; }
+.skill-info { display: flex; justify-content: space-between; margin-bottom: 8px; font-weight: 600; color: var(--text-title); font-size: 0.9rem; }
+.skill-bar { width: 100%; height: 8px; background-color: rgba(255,255,255,0.05); border-radius: 4px; overflow: hidden; }
+.skill-fill { height: 100%; background: linear-gradient(90deg, var(--primary), #ff9800); border-radius: 4px; box-shadow: 0 0 10px var(--primary); animation: fillBar 1.5s ease-out forwards; transform-origin: left; }
+
+@keyframes fillBar { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+.soft-skills-tags { display: flex; flex-wrap: wrap; gap: 12px; }
+.tag { background-color: rgba(230, 81, 0, 0.1); color: var(--primary); border: 1px solid rgba(230, 81, 0, 0.3); padding: 8px 16px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; }
+
+/* =========================================
+   6. FORM GÓP Ý & LIÊN HỆ
+========================================= */
+.feedback-container { padding: 40px; }
+.feedback-text { margin-bottom: 25px; text-align: center; }
+.feedback-text h3 { color: var(--text-title); font-size: 1.5rem; margin-bottom: 10px; }
+
+.feedback-form { display: flex; flex-direction: column; gap: 20px; }
+.form-group { display: flex; gap: 20px; width: 100%; }
+
+.feedback-form input, .feedback-form textarea {
+    width: 100%; padding: 15px; border-radius: var(--radius);
+    background-color: rgba(255,255,255,0.05); border: 1px solid var(--border);
+    color: var(--text-title); font-family: inherit; font-size: 0.95rem;
+    transition: all 0.3s; resize: vertical; 
+}
+.feedback-form input:focus, .feedback-form textarea:focus {
+    outline: none; border-color: var(--primary); box-shadow: 0 0 15px rgba(230,81,0,0.2);
+    background-color: rgba(255,255,255,0.08);
+}
+
+/* =========================================
+   7. MINI GAME
+========================================= */
+.game-container { background-color: rgba(0,0,0,0.4); border: 1px solid var(--border); border-radius: var(--radius); padding: 30px; backdrop-filter: blur(10px); }
+.game-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+.game-header h2 { color: var(--text-title); }
+.score-board { font-size: 1.5rem; font-weight: 800; color: var(--primary); background: rgba(230,81,0,0.1); padding: 10px 20px; border-radius: var(--radius); border: 1px solid var(--primary); }
+#game-area { width: 100%; height: 300px; background-color: #0b0d10; border: 2px dashed var(--border); border-radius: var(--radius); position: relative; overflow: hidden; cursor: crosshair; }
+#bug { font-size: 2rem; position: absolute; cursor: pointer; user-select: none; transition: transform 0.1s; z-index: 100; }
+
+/* =========================================
+   8. CÁC PHẦN HEADER & PROJECTS
+========================================= */
+.header { padding: 120px 0 80px 0; }
+.header__container { display: flex; justify-content: space-between; align-items: center; gap: 50px; }
+.header__info { flex: 1; }
+.greeting { color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: 3px; margin-bottom: 12px; }
+.header__title { color: var(--text-title); font-size: 3.5rem; font-weight: 800; line-height: 1.2; margin-bottom: 20px; text-transform: uppercase; letter-spacing: -1px; }
+.header__badges { display: flex; gap: 12px; margin-bottom: 24px; }
+.badge { background-color: rgba(230, 81, 0, 0.1); color: var(--primary); border: 1px solid rgba(230, 81, 0, 0.3); padding: 6px 14px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; border-radius: 4px; }
+.header__desc { font-size: 1.1rem; margin-bottom: 35px; max-width: 550px; color: var(--text-body); }
+.header__contact { display: flex; flex-wrap: wrap; gap: 15px; }
+
+@keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-15px); } 100% { transform: translateY(0px); } }
+.header__avatar img { width: 320px; height: 320px; object-fit: cover; border-radius: var(--radius); border: 2px solid var(--primary); box-shadow: 0 0 30px rgba(230,81,0,0.3); filter: grayscale(10%) contrast(110%); transition: 0.5s ease; animation: float 5s ease-in-out infinite; }
+
+.section { padding: 60px 0; }
+.section__title { color: var(--text-title); font-size: 2rem; font-weight: 800; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 40px; display: flex; align-items: center; gap: 20px; }
+.section__title::after { content: ""; height: 1px; flex-grow: 1; background-color: var(--border); }
+
+@keyframes move-left { from { transform: translateX(0); } to { transform: translateX(calc(-100% - 20px)); } }
+.icons-list-wrapper { display: flex; width: 100%; overflow: hidden; margin-bottom: 40px; mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent); }
+.icons-list { display: flex; gap: 20px; padding-right: 20px; animation: move-left 15s linear infinite; }
+.icon-badges { display: flex; align-items: center; padding: 12px 24px; background-color: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); color: var(--text-title); font-weight: 700; text-transform: uppercase; font-size: 0.85rem; white-space: nowrap; }
+
+.projects__grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; }
+.project-card__img { height: 240px; background-size: cover; background-position: center; border-bottom: 1px solid var(--border); transition: transform 0.6s ease; }
+.project-card:hover .project-card__img { transform: scale(1.08); }
+.project-card__content { padding: 30px; background-color: var(--bg-card); position: relative; z-index: 1; display: flex; flex-direction: column; height: calc(100% - 240px); }
+.project-card__content p { flex-grow: 1; margin-bottom: 20px; }
+.project-card:hover { border-color: var(--primary); box-shadow: 0 15px 30px rgba(0,0,0,0.6), 0 0 20px rgba(230,81,0,0.15); transform: translateY(-5px); }
+.project-card span { color: var(--primary); font-size: 0.75rem; text-transform: uppercase; font-weight: 800; display: block; margin-bottom: 8px; }
+.project-card h3 { color: var(--text-title); font-size: 1.3rem; margin-bottom: 12px; }
+
+@keyframes fadeUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+.animate-fade-up { opacity: 0; animation: fadeUp 0.8s forwards; }
+
+/* =========================================
+   9. FOOTER & SOCIAL LINKS MỚI
+========================================= */
+.footer {
+    text-align: center;
+    padding: 60px 0 40px 0;
+    margin-top: 60px;
+    border-top: 1px solid var(--border);
+    background-color: rgba(255,255,255,0.02);
+}
+
+.footer__content { margin-bottom: 30px; }
+.footer__content h3 { color: var(--text-title); margin-bottom: 20px; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 1px; }
+
+.social-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 15px; }
+.social-link {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 10px 20px; background-color: var(--bg-card);
+    border: 1px solid var(--border); border-radius: 30px;
+    color: var(--text-body); text-decoration: none;
+    font-size: 0.9rem; font-weight: 600; transition: all 0.3s ease;
+}
+.social-link:hover {
+    border-color: var(--primary); color: var(--primary);
+    transform: translateY(-3px); box-shadow: 0 5px 15px rgba(230,81,0,0.15);
+}
+
+.copyright { font-size: 0.9rem; color: var(--n-500); }
+
+/* =========================================
+   10. RESPONSIVE (MOBILE)
+========================================= */
+@media (max-width: 768px) {
+    .header__container { flex-direction: column-reverse; text-align: center; }
+    .header__contact { justify-content: center; }
+    .header__avatar img { width: 250px; height: 250px; }
+    .cv-layout { grid-template-columns: 1fr; } 
+    .skills-cv-grid { grid-template-columns: 1fr; }
+    .projects__grid { grid-template-columns: 1fr; }
+    .form-group { flex-direction: column; } 
+    .game-header { flex-direction: column; gap: 15px; text-align: center; }
+    .section__title::after { display: none; }
+}
